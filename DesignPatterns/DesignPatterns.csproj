@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <Folder Include="Behavior\" />
+    <Folder Include="Creational\AbstractFactory\Teoria\" />
     <Folder Include="Creational\FactoryMethod\Teoria\" />
     <Folder Include="Structural\" />
   </ItemGroup>
