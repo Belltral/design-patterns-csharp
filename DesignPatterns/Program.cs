@@ -6,6 +6,7 @@ using DesignPatterns.Creational.FactoryMethod.Main;
 using DesignPatterns.Creational.FactoryMethod.Utils;
 using DesignPatterns.Creational.Prototype.DeepCopy;
 using DesignPatterns.Creational.Singleton;
+using DesignPatterns.Structural.Composite;
 using System.Runtime;
 
 namespace DesignPatterns
@@ -82,16 +83,50 @@ namespace DesignPatterns
 
 
             #region Abstract Factory
-            var enterpriseFactory = new EnterpriseCustomerVehicleFactory();
-            var individualFactory = new IndividualCustomerVehicleFactory();
+            //var enterpriseFactory = new EnterpriseCustomerVehicleFactory();
+            //var individualFactory = new IndividualCustomerVehicleFactory();
 
-            var car1 = enterpriseFactory.CreateVehicle("Fusca", "João");
-            var car2 = individualFactory.CreateVehicle("Celta", "Helena");
+            //var car1 = enterpriseFactory.CreateVehicle("Fusca", "João");
+            //var car2 = individualFactory.CreateVehicle("Celta", "Helena");
 
-            car1.PickUp();
-            car2.PickUp();
-
+            //car1.PickUp();
+            //car2.PickUp();
             #endregion
+
+
+            #region Composite
+            //var pen = new ProductLeaf("Pen", 1);
+            //var smartphone = new ProductLeaf("Smartphone", 1000);
+            //var tShirt = new ProductLeaf("Camiseta", 40);
+
+            //var productBox = new ProductComposite();
+            //productBox.Add(pen, smartphone, tShirt);
+
+            //Console.WriteLine(productBox);
+            //Console.WriteLine(productBox.GetPrice());
+            //Console.WriteLine();
+
+            //var tablet = new ProductLeaf("Tablet", 2000);
+            //var kindle = new ProductLeaf("Kindle", 300);
+            //var anotherBox = new ProductComposite();
+            //anotherBox.Add(tablet, kindle);
+            //productBox.Add(anotherBox);
+
+            //Console.WriteLine(productBox);
+            //Console.WriteLine(productBox.GetPrice());
+
+            //var validateEmail = new ValidateEmail();
+            //var validateNumber = new ValidateNumber();
+            //var validateString = new ValidateString();
+            //var validationComposite = new ValidationComposite();
+
+            //validationComposite.Add(validateEmail);
+
+            //Console.WriteLine(validationComposite.Validate("a@a"));
+            #endregion
+
+
+
         }
     }
 }
