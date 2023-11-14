@@ -12,3 +12,7 @@ D:\Estudos\Design Patterns\Exemplos com C#\DesignPatterns\DesignPatterns\obj\Deb
 D:\Estudos\Design Patterns\Exemplos com C#\DesignPatterns\DesignPatterns\obj\Debug\net6.0\DesignPatterns.pdb
 D:\Estudos\Design Patterns\Exemplos com C#\DesignPatterns\DesignPatterns\obj\Debug\net6.0\DesignPatterns.genruntimeconfig.cache
 D:\Estudos\Design Patterns\Exemplos com C#\DesignPatterns\DesignPatterns\obj\Debug\net6.0\ref\DesignPatterns.dll
+D:\Estudos\Design Patterns\Exemplos com C#\DesignPatterns\DesignPatterns\bin\Debug\net6.0\TestLibraries.dll
+D:\Estudos\Design Patterns\Exemplos com C#\DesignPatterns\DesignPatterns\bin\Debug\net6.0\TestLibraries.pdb
+D:\Estudos\Design Patterns\Exemplos com C#\DesignPatterns\DesignPatterns\obj\Debug\net6.0\DesignPatterns.csproj.AssemblyReference.cache
+D:\Estudos\Design Patterns\Exemplos com C#\DesignPatterns\DesignPatterns\obj\Debug\net6.0\DesignPatterns.csproj.CopyComplete

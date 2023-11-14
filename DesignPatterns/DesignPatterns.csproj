@@ -9,9 +9,15 @@
 
   <ItemGroup>
     <Folder Include="Behavior\" />
+    <Folder Include="Structural\Adapter\Teoria\" />
+    <Folder Include="Structural\Bridge\Teoria\" />
     <Folder Include="Structural\Composite\Teoria\" />
     <Folder Include="Creational\AbstractFactory\Teoria\" />
     <Folder Include="Creational\FactoryMethod\Teoria\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TestLibraries\TestLibraries.csproj" />
   </ItemGroup>
 
 </Project>

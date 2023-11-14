@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "TestLibraries/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/TestLibraries.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TestLibraries.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "TestLibraries/1.0.0": {
+      "type": "project",
+      "path": "../TestLibraries/TestLibraries.csproj",
+      "msbuildProject": "../TestLibraries/TestLibraries.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "TestLibraries >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\henri\\.nuget\\packages\\": {}
@@ -33,7 +52,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Estudos\\Design Patterns\\Exemplos com C#\\DesignPatterns\\TestLibraries\\TestLibraries.csproj": {
+              "projectPath": "D:\\Estudos\\Design Patterns\\Exemplos com C#\\DesignPatterns\\TestLibraries\\TestLibraries.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -6,6 +6,9 @@ using DesignPatterns.Creational.FactoryMethod.Main;
 using DesignPatterns.Creational.FactoryMethod.Utils;
 using DesignPatterns.Creational.Prototype.DeepCopy;
 using DesignPatterns.Creational.Singleton;
+using DesignPatterns.Structural.Adapter.Validation;
+using DesignPatterns.Structural.Bridge.Device;
+using DesignPatterns.Structural.Bridge.RemoteControl;
 using DesignPatterns.Structural.Composite;
 using System.Runtime;
 
@@ -126,7 +129,41 @@ namespace DesignPatterns
             #endregion
 
 
+            #region Adapter
+            //var email1 = "teste@teste.com";
+            //var email2 = "teste.teste.com";
 
+            //string[] emails = new string[2] { email1, email2 };
+
+            //var validacao = new EmailValidatorAdapter();
+
+            //foreach (var email in emails)
+            //{
+            //    if (validacao.EmailValidator(email))
+            //    {
+            //        Console.WriteLine($"O email {email} é válido.");
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine($"O email {email} é inválido.");
+            //    }
+            //}
+            #endregion
+
+            #region Bridge
+            //Radio radio = new Radio();
+            //Tv tv = new Tv();
+
+            //RemoteControl radioRemoteControl = new RemoteControl(radio);
+            //RemoteControlWithVolume tvRemoteControl = new RemoteControlWithVolume(tv);
+
+            //radioRemoteControl.TogglePower();
+
+            //Console.WriteLine();
+
+            //tvRemoteControl.TogglePower();
+            //tvRemoteControl.VolumeUp();
+            #endregion
         }
     }
 }
