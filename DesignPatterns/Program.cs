@@ -10,6 +10,7 @@ using DesignPatterns.Structural.Adapter.Validation;
 using DesignPatterns.Structural.Bridge.Device;
 using DesignPatterns.Structural.Bridge.RemoteControl;
 using DesignPatterns.Structural.Composite;
+using DesignPatterns.Structural.Decorator.Product;
 using System.Runtime;
 
 namespace DesignPatterns
@@ -150,6 +151,7 @@ namespace DesignPatterns
             //}
             #endregion
 
+
             #region Bridge
             //Radio radio = new Radio();
             //Tv tv = new Tv();
@@ -164,6 +166,20 @@ namespace DesignPatterns
             //tvRemoteControl.TogglePower();
             //tvRemoteControl.VolumeUp();
             #endregion
+
+
+            #region Decorator
+            //var tShirt = new TShirt();
+            //var printedTShirt = new ProductStampDecorator{ Product = tShirt };
+            //var customizedTShirt = new ProductCustomization { Product = tShirt };
+
+            //Console.WriteLine(tShirt.GetPrice() + " | " + tShirt.GetName());
+            //Console.WriteLine(printedTShirt.GetPrice() + " | " + printedTShirt.GetName());
+            //Console.WriteLine(customizedTShirt.GetPrice() + " | " + customizedTShirt.GetName());
+            #endregion
+
+
+
         }
     }
 }
