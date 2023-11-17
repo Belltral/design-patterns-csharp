@@ -19,5 +19,10 @@ namespace DesignPatterns.Creational.Builder.Classes.Classes
         {
             return Price;
         }
+
+        public override string ToString()
+        {
+            return $"{Name}".ToString();
+        }
     }
 }

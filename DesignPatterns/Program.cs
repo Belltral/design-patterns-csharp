@@ -11,6 +11,7 @@ using DesignPatterns.Structural.Bridge.Device;
 using DesignPatterns.Structural.Bridge.RemoteControl;
 using DesignPatterns.Structural.Composite;
 using DesignPatterns.Structural.Decorator.Product;
+using DesignPatterns.Structural.Facade;
 using System.Runtime;
 
 namespace DesignPatterns
@@ -179,7 +180,11 @@ namespace DesignPatterns
             #endregion
 
 
-
+            #region Facade
+            var builderFacade = new BuilderFacade();
+            builderFacade.MakeMeal1();
+            builderFacade.MakeMeal2();
+            #endregion
         }
     }
 }

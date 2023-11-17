@@ -1,4 +1,5 @@
 ﻿using DesignPatterns.Creational.Builder.interfaces;
+using System.Text;
 
 namespace DesignPatterns.Creational.Builder.Classes
 {
@@ -24,6 +25,16 @@ namespace DesignPatterns.Creational.Builder.Classes
         public void Add(IMealComposite meal)
         {
             _children.Add(meal);
+        }
+
+        public override string ToString()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            foreach (var item in _children)
+            {
+                stringBuilder.AppendLine(item.ToString());
+            }
+            return stringBuilder.ToString();
         }
     }
 }

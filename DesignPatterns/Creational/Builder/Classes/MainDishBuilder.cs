@@ -39,5 +39,20 @@ namespace DesignPatterns.Creational.Builder.Classes
             _meal.Add(desset);
             return this;
         }
+
+        public MealBox GetMeal()
+        {
+            return _meal;
+        }
+
+        public double GetPrice()
+        {
+            return _meal.GetPrice();
+        }
+
+        public override string ToString()
+        {
+            return _meal.ToString();
+        }
     }
 }
