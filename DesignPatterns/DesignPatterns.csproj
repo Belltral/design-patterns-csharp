@@ -16,6 +16,7 @@
     <Folder Include="Creational\FactoryMethod\Teoria\" />
     <Folder Include="Structural\Decorator\Teoria\" />
     <Folder Include="Structural\Facade\Teoria\" />
+    <Folder Include="Structural\Proxy\Teoria\" />
   </ItemGroup>
 
   <ItemGroup>

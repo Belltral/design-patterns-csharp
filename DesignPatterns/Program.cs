@@ -12,6 +12,7 @@ using DesignPatterns.Structural.Bridge.RemoteControl;
 using DesignPatterns.Structural.Composite;
 using DesignPatterns.Structural.Decorator.Product;
 using DesignPatterns.Structural.Facade;
+using DesignPatterns.Structural.Proxy.SystemUser;
 using System.Runtime;
 
 namespace DesignPatterns
@@ -181,9 +182,32 @@ namespace DesignPatterns
 
 
             #region Facade
-            var builderFacade = new BuilderFacade();
-            builderFacade.MakeMeal1();
-            builderFacade.MakeMeal2();
+            //var builderFacade = new BuilderFacade();
+            //builderFacade.MakeMeal1();
+            //builderFacade.MakeMeal2();
+            #endregion
+
+
+            #region
+            var user = new SystemUserProxy("Zé", "zedamanga");
+            Console.WriteLine("2 segundos:");
+            foreach (var address in user.GetAddress())
+            {
+                Console.WriteLine(address);
+            }
+
+            Console.WriteLine();
+
+            Console.WriteLine("Cache:");
+            for (int i = 0; i < 5; i++)
+            {
+                foreach (var address in user.GetAddress())
+                {
+                    Console.WriteLine(address);
+                }
+            }
+
+
             #endregion
         }
     }
