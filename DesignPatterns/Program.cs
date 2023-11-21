@@ -12,6 +12,7 @@ using DesignPatterns.Structural.Bridge.RemoteControl;
 using DesignPatterns.Structural.Composite;
 using DesignPatterns.Structural.Decorator.Product;
 using DesignPatterns.Structural.Facade;
+using DesignPatterns.Structural.Flyweight.Delivery;
 using DesignPatterns.Structural.Proxy.SystemUser;
 using System.Runtime;
 
@@ -188,27 +189,39 @@ namespace DesignPatterns
             #endregion
 
 
-            #region
-            var user = new SystemUserProxy("Zé", "zedamanga");
-            Console.WriteLine("2 segundos:");
-            foreach (var address in user.GetAddress())
-            {
-                Console.WriteLine(address);
-            }
+            #region Proxy
+            //var user = new SystemUserProxy("Zé", "zedamanga");
+            //Console.WriteLine("2 segundos:");
+            //foreach (var address in user.GetAddress())
+            //{
+            //    Console.WriteLine(address);
+            //}
+
+            //Console.WriteLine();
+
+            //Console.WriteLine("Cache:");
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    foreach (var address in user.GetAddress())
+            //    {
+            //        Console.WriteLine(address);
+            //    }
+            //}
+            #endregion
+
+            #region Flyweight
+            var factory = new DeliveryFactory();
+            DeliveryContext.DeliveryContextFn(factory, "Irineu", "20A", "Av. Brasil", "SP");
+            DeliveryContext.DeliveryContextFn(factory, "Helena", "20A", "Av Brasil", "SP");
+            DeliveryContext.DeliveryContextFn(factory, "Joana", "502", "Av Brasil", "SP");
+            DeliveryContext.DeliveryContextFn(factory, "Eliana", "2", "Rua A", "BH");
+            DeliveryContext.DeliveryContextFn(factory, "João", "501", "Rua B", "RJ");
 
             Console.WriteLine();
 
-            Console.WriteLine("Cache:");
-            for (int i = 0; i < 5; i++)
-            {
-                foreach (var address in user.GetAddress())
-                {
-                    Console.WriteLine(address);
-                }
-            }
-
-
+            Console.WriteLine(factory.GetLocations());
             #endregion
+
         }
     }
 }
