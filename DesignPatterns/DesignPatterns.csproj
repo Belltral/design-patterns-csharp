@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Behavior\" />
+    <Folder Include="Behavior\Strategy\Teoria\" />
     <Folder Include="Structural\Adapter\Teoria\" />
     <Folder Include="Structural\Bridge\Teoria\" />
     <Folder Include="Structural\Composite\Teoria\" />

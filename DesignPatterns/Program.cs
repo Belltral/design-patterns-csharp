@@ -1,4 +1,5 @@
-﻿using DesignPatterns.Creational.AbstractFactory.Factories;
+﻿using DesignPatterns.Behavior.Strategy.ShoppingCart;
+using DesignPatterns.Creational.AbstractFactory.Factories;
 using DesignPatterns.Creational.Builder.Classes;
 using DesignPatterns.Creational.Builder.Classes.Classes;
 using DesignPatterns.Creational.FactoryMethod.Factories;
@@ -14,7 +15,9 @@ using DesignPatterns.Structural.Decorator.Product;
 using DesignPatterns.Structural.Facade;
 using DesignPatterns.Structural.Flyweight.Delivery;
 using DesignPatterns.Structural.Proxy.SystemUser;
+using System;
 using System.Runtime;
+using System.Security.Cryptography.X509Certificates;
 
 namespace DesignPatterns
 {
@@ -209,19 +212,36 @@ namespace DesignPatterns
             //}
             #endregion
 
+
             #region Flyweight
-            var factory = new DeliveryFactory();
-            DeliveryContext.DeliveryContextFn(factory, "Irineu", "20A", "Av. Brasil", "SP");
-            DeliveryContext.DeliveryContextFn(factory, "Helena", "20A", "Av Brasil", "SP");
-            DeliveryContext.DeliveryContextFn(factory, "Joana", "502", "Av Brasil", "SP");
-            DeliveryContext.DeliveryContextFn(factory, "Eliana", "2", "Rua A", "BH");
-            DeliveryContext.DeliveryContextFn(factory, "João", "501", "Rua B", "RJ");
+            //var factory = new DeliveryFactory();
+            //DeliveryContext.DeliveryContextFn(factory, "Irineu", "20A", "Av. Brasil", "SP");
+            //DeliveryContext.DeliveryContextFn(factory, "Helena", "20A", "Av Brasil", "SP");
+            //DeliveryContext.DeliveryContextFn(factory, "Joana", "502", "Av Brasil", "SP");
+            //DeliveryContext.DeliveryContextFn(factory, "Eliana", "2", "Rua A", "BH");
+            //DeliveryContext.DeliveryContextFn(factory, "João", "501", "Rua B", "RJ");
 
-            Console.WriteLine();
+            //Console.WriteLine();
 
-            Console.WriteLine(factory.GetLocations());
+            //Console.WriteLine(factory.GetLocations());
             #endregion
 
+
+            #region Strategy
+
+            //var shoppingCart = new ECommerceShoppingCart(new DefaultDiscount());
+            var shoppingCart = new ECommerceShoppingCart(new DefaultDiscount());
+            shoppingCart.AddProduct( 
+                new ECommerceProduct { Name = "Produto 1", Price = 50 },
+                new ECommerceProduct { Name = "Produto 2", Price = 50 },
+                new ECommerceProduct { Name = "Produto 3", Price = 50 }
+            );
+            shoppingCart.AddProduct();
+            shoppingCart.AddProduct();
+            Console.WriteLine(shoppingCart.GetTotal());
+            Console.WriteLine(shoppingCart.GetTotalWithDiscount());
+
+            #endregion
         }
     }
 }
