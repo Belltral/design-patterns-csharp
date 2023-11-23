@@ -1,4 +1,5 @@
 ﻿using DesignPatterns.Behavior.Strategy.ShoppingCart;
+using DesignPatterns.Behaviour.Command;
 using DesignPatterns.Creational.AbstractFactory.Factories;
 using DesignPatterns.Creational.Builder.Classes;
 using DesignPatterns.Creational.Builder.Classes.Classes;
@@ -228,19 +229,43 @@ namespace DesignPatterns
 
 
             #region Strategy
-
+            ////var shoppingCart = new ECommerceShoppingCart(new DefaultDiscount());
             //var shoppingCart = new ECommerceShoppingCart(new DefaultDiscount());
-            var shoppingCart = new ECommerceShoppingCart(new DefaultDiscount());
-            shoppingCart.AddProduct( 
-                new ECommerceProduct { Name = "Produto 1", Price = 50 },
-                new ECommerceProduct { Name = "Produto 2", Price = 50 },
-                new ECommerceProduct { Name = "Produto 3", Price = 50 }
-            );
-            shoppingCart.AddProduct();
-            shoppingCart.AddProduct();
-            Console.WriteLine(shoppingCart.GetTotal());
-            Console.WriteLine(shoppingCart.GetTotalWithDiscount());
+            //shoppingCart.AddProduct( 
+            //    new ECommerceProduct { Name = "Produto 1", Price = 50 },
+            //    new ECommerceProduct { Name = "Produto 2", Price = 50 },
+            //    new ECommerceProduct { Name = "Produto 3", Price = 50 }
+            //);
+            //shoppingCart.AddProduct();
+            //shoppingCart.AddProduct();
+            //Console.WriteLine(shoppingCart.GetTotal());
+            //Console.WriteLine(shoppingCart.GetTotalWithDiscount());
+            #endregion
 
+
+            #region Command
+            //Receiver
+            var bedroomLight = new SmartHouseLight("Luz Quarto");
+            var bathroomLight = new SmartHouseLight("Luz Banheiro");
+
+            //Command
+            var bedroomLightPowerCommand = new LightPowerCommand(bedroomLight);
+            var bathroomLightPowerCommand = new LightPowerCommand(bathroomLight);
+            var bedroomIntensityCommand = new LightIntensityCommand(bedroomLight);
+
+            //Controle - Invoker
+            var smartHouseApp = new SmartHouseApp();
+            smartHouseApp.AddCommand("btn-1", bedroomLightPowerCommand);
+            smartHouseApp.ExecuteCommand("btn-1");
+            smartHouseApp.UndoCommand("btn-1");
+
+            smartHouseApp.AddCommand("btn-2", bathroomLightPowerCommand);
+            smartHouseApp.ExecuteCommand("btn-2");
+            smartHouseApp.UndoCommand("btn-2");
+
+            smartHouseApp.AddCommand("btn-3", bedroomIntensityCommand);
+            smartHouseApp.ExecuteCommand("btn-3");
+            smartHouseApp.UndoCommand("btn-3");
             #endregion
         }
     }
