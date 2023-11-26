@@ -1,5 +1,6 @@
 ﻿using DesignPatterns.Behavior.Strategy.ShoppingCart;
 using DesignPatterns.Behaviour.Command;
+using DesignPatterns.Behaviour.Memento;
 using DesignPatterns.Creational.AbstractFactory.Factories;
 using DesignPatterns.Creational.Builder.Classes;
 using DesignPatterns.Creational.Builder.Classes.Classes;
@@ -244,28 +245,52 @@ namespace DesignPatterns
 
 
             #region Command
-            //Receiver
-            var bedroomLight = new SmartHouseLight("Luz Quarto");
-            var bathroomLight = new SmartHouseLight("Luz Banheiro");
+            ////Receiver
+            //var bedroomLight = new SmartHouseLight("Luz Quarto");
+            //var bathroomLight = new SmartHouseLight("Luz Banheiro");
 
-            //Command
-            var bedroomLightPowerCommand = new LightPowerCommand(bedroomLight);
-            var bathroomLightPowerCommand = new LightPowerCommand(bathroomLight);
-            var bedroomIntensityCommand = new LightIntensityCommand(bedroomLight);
+            ////Command
+            //var bedroomLightPowerCommand = new LightPowerCommand(bedroomLight);
+            //var bathroomLightPowerCommand = new LightPowerCommand(bathroomLight);
+            //var bedroomIntensityCommand = new LightIntensityCommand(bedroomLight);
 
-            //Controle - Invoker
-            var smartHouseApp = new SmartHouseApp();
-            smartHouseApp.AddCommand("btn-1", bedroomLightPowerCommand);
-            smartHouseApp.ExecuteCommand("btn-1");
-            smartHouseApp.UndoCommand("btn-1");
+            ////Controle - Invoker
+            //var smartHouseApp = new SmartHouseApp();
+            //smartHouseApp.AddCommand("btn-1", bedroomLightPowerCommand);
+            //smartHouseApp.ExecuteCommand("btn-1");
+            //smartHouseApp.UndoCommand("btn-1");
 
-            smartHouseApp.AddCommand("btn-2", bathroomLightPowerCommand);
-            smartHouseApp.ExecuteCommand("btn-2");
-            smartHouseApp.UndoCommand("btn-2");
+            //smartHouseApp.AddCommand("btn-2", bathroomLightPowerCommand);
+            //smartHouseApp.ExecuteCommand("btn-2");
+            //smartHouseApp.UndoCommand("btn-2");
 
-            smartHouseApp.AddCommand("btn-3", bedroomIntensityCommand);
-            smartHouseApp.ExecuteCommand("btn-3");
-            smartHouseApp.UndoCommand("btn-3");
+            //smartHouseApp.AddCommand("btn-3", bedroomIntensityCommand);
+            //smartHouseApp.ExecuteCommand("btn-3");
+            //smartHouseApp.UndoCommand("btn-3");
+            #endregion
+
+
+            #region Memento
+            var imageEditor = new ImageEditor(@"/media/image.png", "png");
+
+            var backupManager = new ImageEditorBackupManager(imageEditor);
+
+            backupManager.Backup();
+            imageEditor.ConvertFormatTo("gif");
+
+            backupManager.Backup();
+            imageEditor.ConvertFormatTo("jpeg");
+
+            backupManager.Backup();
+            imageEditor.ConvertFormatTo("icon");
+
+            Console.WriteLine(imageEditor);
+
+            backupManager.Undo();
+            Console.WriteLine(imageEditor);
+
+            backupManager.Undo();
+            Console.WriteLine(imageEditor);
             #endregion
         }
     }
