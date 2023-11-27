@@ -1,6 +1,7 @@
 ﻿using DesignPatterns.Behavior.Strategy.ShoppingCart;
 using DesignPatterns.Behaviour.Command;
 using DesignPatterns.Behaviour.Memento;
+using DesignPatterns.Behaviour.State.ShoppingOrder;
 using DesignPatterns.Creational.AbstractFactory.Factories;
 using DesignPatterns.Creational.Builder.Classes;
 using DesignPatterns.Creational.Builder.Classes.Classes;
@@ -271,26 +272,40 @@ namespace DesignPatterns
 
 
             #region Memento
-            var imageEditor = new ImageEditor(@"/media/image.png", "png");
+            //var imageEditor = new ImageEditor(@"/media/image.png", "png");
 
-            var backupManager = new ImageEditorBackupManager(imageEditor);
+            //var backupManager = new ImageEditorBackupManager(imageEditor);
 
-            backupManager.Backup();
-            imageEditor.ConvertFormatTo("gif");
+            //backupManager.Backup();
+            //imageEditor.ConvertFormatTo("gif");
 
-            backupManager.Backup();
-            imageEditor.ConvertFormatTo("jpeg");
+            //backupManager.Backup();
+            //imageEditor.ConvertFormatTo("jpeg");
 
-            backupManager.Backup();
-            imageEditor.ConvertFormatTo("icon");
+            //backupManager.Backup();
+            //imageEditor.ConvertFormatTo("icon");
 
-            Console.WriteLine(imageEditor);
+            //Console.WriteLine(imageEditor);
 
-            backupManager.Undo();
-            Console.WriteLine(imageEditor);
+            //backupManager.Undo();
+            //Console.WriteLine(imageEditor);
 
-            backupManager.Undo();
-            Console.WriteLine(imageEditor);
+            //backupManager.Undo();
+            //Console.WriteLine(imageEditor);
+            #endregion
+
+
+            #region State
+            var order = new ShoppingOrder();
+            order.ApprovePayment(); // Aprovado
+            order.WaitPayment(); // Pendente
+            order.ShipOrder();
+            order.RejectPayment(); // A partir daqui o estado não se altera mais
+            order.ApprovePayment();
+            order.WaitPayment();
+            order.ApprovePayment();
+            order.ShipOrder();
+
             #endregion
         }
     }
