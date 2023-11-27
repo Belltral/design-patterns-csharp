@@ -1,6 +1,4 @@
 ﻿
-using System.Xml.Linq;
-
 namespace DesignPatterns.Behaviour.Memento
 {
     //Originator
