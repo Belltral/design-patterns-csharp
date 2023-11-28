@@ -1,5 +1,6 @@
 ﻿using DesignPatterns.Behavior.Strategy.ShoppingCart;
 using DesignPatterns.Behaviour.Command;
+using DesignPatterns.Behaviour.Mediator;
 using DesignPatterns.Behaviour.Memento;
 using DesignPatterns.Behaviour.State.ShoppingOrder;
 using DesignPatterns.Creational.AbstractFactory.Factories;
@@ -296,15 +297,41 @@ namespace DesignPatterns
 
 
             #region State
-            var order = new ShoppingOrder();
-            order.ApprovePayment(); // Aprovado
-            order.WaitPayment(); // Pendente
-            order.ShipOrder();
-            order.RejectPayment(); // A partir daqui o estado não se altera mais
-            order.ApprovePayment();
-            order.WaitPayment();
-            order.ApprovePayment();
-            order.ShipOrder();
+            //var order = new ShoppingOrder();
+            //order.ApprovePayment(); // Aprovado
+            //order.WaitPayment(); // Pendente
+            //order.ShipOrder();
+            //order.RejectPayment(); // A partir daqui o estado não se altera mais
+            //order.ApprovePayment();
+            //order.WaitPayment();
+            //order.ApprovePayment();
+            //order.ShipOrder();
+            #endregion
+
+
+            #region Mediator
+            Mediator mediator = new Mediator();
+
+            Seller seller1 = new Seller();
+            SellerProduct seller1Product1 = new SellerProduct { Id = "1", Name = "Camiseta", Price = 49.90 };
+            SellerProduct seller1Product2 = new SellerProduct { Id = "2", Name = "Caneta", Price = 9.90 };
+            seller1.AddProduct(seller1Product1, seller1Product2);
+
+            Seller seller2 = new Seller();
+            SellerProduct seller2Product1 = new SellerProduct { Id = "3", Name = "Carro", Price = 49000.90 };
+            SellerProduct seller2Product2 = new SellerProduct { Id = "4", Name = "Lápis", Price = 1.90 };
+            seller2.AddProduct(seller2Product1, seller2Product2);
+
+            mediator.AddSeller(seller1, seller2);
+            mediator.ShowProducts();
+
+            Console.WriteLine();
+
+            Buyer buyer = new Buyer(mediator);
+            buyer.Buy("2");
+            buyer.Buy("3");
+            Console.WriteLine();
+            buyer.ViewProduct();
 
             #endregion
         }
