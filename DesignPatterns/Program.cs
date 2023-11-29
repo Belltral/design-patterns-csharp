@@ -1,4 +1,5 @@
 ﻿using DesignPatterns.Behavior.Strategy.ShoppingCart;
+using DesignPatterns.Behaviour.ChainOfResponsability;
 using DesignPatterns.Behaviour.Command;
 using DesignPatterns.Behaviour.Mediator;
 using DesignPatterns.Behaviour.Memento;
@@ -310,29 +311,41 @@ namespace DesignPatterns
 
 
             #region Mediator
-            Mediator mediator = new Mediator();
+            //Mediator mediator = new Mediator();
 
-            Seller seller1 = new Seller();
-            SellerProduct seller1Product1 = new SellerProduct { Id = "1", Name = "Camiseta", Price = 49.90 };
-            SellerProduct seller1Product2 = new SellerProduct { Id = "2", Name = "Caneta", Price = 9.90 };
-            seller1.AddProduct(seller1Product1, seller1Product2);
+            //Seller seller1 = new Seller();
+            //SellerProduct seller1Product1 = new SellerProduct { Id = "1", Name = "Camiseta", Price = 49.90 };
+            //SellerProduct seller1Product2 = new SellerProduct { Id = "2", Name = "Caneta", Price = 9.90 };
+            //seller1.AddProduct(seller1Product1, seller1Product2);
 
-            Seller seller2 = new Seller();
-            SellerProduct seller2Product1 = new SellerProduct { Id = "3", Name = "Carro", Price = 49000.90 };
-            SellerProduct seller2Product2 = new SellerProduct { Id = "4", Name = "Lápis", Price = 1.90 };
-            seller2.AddProduct(seller2Product1, seller2Product2);
+            //Seller seller2 = new Seller();
+            //SellerProduct seller2Product1 = new SellerProduct { Id = "3", Name = "Carro", Price = 49000.90 };
+            //SellerProduct seller2Product2 = new SellerProduct { Id = "4", Name = "Lápis", Price = 1.90 };
+            //seller2.AddProduct(seller2Product1, seller2Product2);
 
-            mediator.AddSeller(seller1, seller2);
-            mediator.ShowProducts();
+            //mediator.AddSeller(seller1, seller2);
+            //mediator.ShowProducts();
 
-            Console.WriteLine();
+            //Console.WriteLine();
 
-            Buyer buyer = new Buyer(mediator);
-            buyer.Buy("2");
-            buyer.Buy("3");
-            Console.WriteLine();
-            buyer.ViewProduct();
+            //Buyer buyer = new Buyer(mediator);
+            //buyer.Buy("2");
+            //buyer.Buy("3");
+            //Console.WriteLine();
+            //buyer.ViewProduct();
+            #endregion
 
+
+            #region Chain of Responsbility
+            CustomerBudget customerBudget = new CustomerBudget { Total= 50001};
+
+            SellerBudgetHandler seller = new SellerBudgetHandler();
+            seller
+                .SetNextHandler(new ManagerBudgetHandler())
+                .SetNextHandler(new DirectorBudgetHandler())
+                .SetNextHandler(new CEOBudgetHandler());
+
+            seller.Handle(customerBudget);
             #endregion
         }
     }
