@@ -4,6 +4,7 @@ using DesignPatterns.Behaviour.Command;
 using DesignPatterns.Behaviour.Mediator;
 using DesignPatterns.Behaviour.Memento;
 using DesignPatterns.Behaviour.State.ShoppingOrder;
+using DesignPatterns.Behaviour.TemplateMethod;
 using DesignPatterns.Creational.AbstractFactory.Factories;
 using DesignPatterns.Creational.Builder.Classes;
 using DesignPatterns.Creational.Builder.Classes.Classes;
@@ -23,6 +24,8 @@ using DesignPatterns.Structural.Proxy.SystemUser;
 using System;
 using System.Runtime;
 using System.Security.Cryptography.X509Certificates;
+using System.Text.Json;
+using System.Text.RegularExpressions;
 
 namespace DesignPatterns
 {
@@ -337,15 +340,39 @@ namespace DesignPatterns
 
 
             #region Chain of Responsbility
-            CustomerBudget customerBudget = new CustomerBudget { Total= 50001};
+            //CustomerBudget customerBudget = new CustomerBudget { Total= 50001};
 
-            SellerBudgetHandler seller = new SellerBudgetHandler();
-            seller
-                .SetNextHandler(new ManagerBudgetHandler())
-                .SetNextHandler(new DirectorBudgetHandler())
-                .SetNextHandler(new CEOBudgetHandler());
+            //SellerBudgetHandler seller = new SellerBudgetHandler();
+            //seller
+            //    .SetNextHandler(new ManagerBudgetHandler())
+            //    .SetNextHandler(new DirectorBudgetHandler())
+            //    .SetNextHandler(new CEOBudgetHandler());
 
-            seller.Handle(customerBudget);
+            //seller.Handle(customerBudget);
+            #endregion
+
+
+            #region Template Method
+            Console.WriteLine("TXT");
+            string txtFilePath = @"..\..\..\Behaviour\TemplateMethod\Files\customer.txt";
+            CustomerDataParserTxt customerDataParserTxt = new CustomerDataParserTxt(txtFilePath);
+            customerDataParserTxt.FixCustomerData();
+            foreach (var customer in customerDataParserTxt.customerData[1])
+            {
+                Console.WriteLine(customer);
+            }
+
+            Console.WriteLine();
+
+            Console.WriteLine("Json:");
+            string jSonFilePath = @"..\..\..\Behaviour\TemplateMethod\Files\customer.json";
+            CustomerDataParserJson customerDataParserjson = new CustomerDataParserJson(jSonFilePath);
+            customerDataParserjson.FixCustomerData();
+
+            foreach (var customer in customerDataParserTxt.customerData[1])
+            {
+                Console.WriteLine(customer);
+            }
             #endregion
         }
     }
