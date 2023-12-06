@@ -10,6 +10,7 @@
   <ItemGroup>
     <Folder Include="Behaviour\ChainOfResponsability\Teoria\" />
     <Folder Include="Behaviour\Command\Teoria\" />
+    <Folder Include="Behaviour\Observer\Teoria\" />
     <Folder Include="Behaviour\State\Teoria\" />
     <Folder Include="Behaviour\TemplateMethod\Teoria\" />
     <Folder Include="Structural\Adapter\Teoria\" />

@@ -353,27 +353,29 @@ namespace DesignPatterns
 
 
             #region Template Method
-            Console.WriteLine("TXT");
-            string txtFilePath = @"..\..\..\Behaviour\TemplateMethod\Files\customer.txt";
-            CustomerDataParserTxt customerDataParserTxt = new CustomerDataParserTxt(txtFilePath);
-            customerDataParserTxt.FixCustomerData();
-            foreach (var customer in customerDataParserTxt.customerData[1])
-            {
-                Console.WriteLine(customer);
-            }
+            //Console.WriteLine("TXT");
+            //string txtFilePath = @"..\..\..\Behaviour\TemplateMethod\Files\customer.txt";
+            //CustomerDataParserTxt customerDataParserTxt = new CustomerDataParserTxt(txtFilePath);
+            //customerDataParserTxt.FixCustomerData();
+            //foreach (var customer in customerDataParserTxt.customerData[1])
+            //{
+            //    Console.WriteLine(customer);
+            //}
 
-            Console.WriteLine();
+            //Console.WriteLine();
 
-            Console.WriteLine("Json:");
-            string jSonFilePath = @"..\..\..\Behaviour\TemplateMethod\Files\customer.json";
-            CustomerDataParserJson customerDataParserjson = new CustomerDataParserJson(jSonFilePath);
-            customerDataParserjson.FixCustomerData();
+            //Console.WriteLine("Json:");
+            //string jSonFilePath = @"..\..\..\Behaviour\TemplateMethod\Files\customer.json";
+            //CustomerDataParserJson customerDataParserjson = new CustomerDataParserJson(jSonFilePath);
+            //customerDataParserjson.FixCustomerData();
 
-            foreach (var customer in customerDataParserTxt.customerData[1])
-            {
-                Console.WriteLine(customer);
-            }
+            //foreach (var customer in customerDataParserTxt.customerData[1])
+            //{
+            //    Console.WriteLine(customer);
+            //}
             #endregion
+
+
         }
     }
 }
