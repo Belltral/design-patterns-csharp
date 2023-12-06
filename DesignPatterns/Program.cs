@@ -1,6 +1,7 @@
 ﻿using DesignPatterns.Behavior.Strategy.ShoppingCart;
 using DesignPatterns.Behaviour.ChainOfResponsability;
 using DesignPatterns.Behaviour.Command;
+using DesignPatterns.Behaviour.Iterator;
 using DesignPatterns.Behaviour.Mediator;
 using DesignPatterns.Behaviour.Memento;
 using DesignPatterns.Behaviour.State.ShoppingOrder;
@@ -376,6 +377,33 @@ namespace DesignPatterns
             #endregion
 
 
+            #region Observer
+
+            #endregion
+
+
+            #region Iterator
+            WordsCollection collection = new WordsCollection();
+            collection.AddItem("First");
+            collection.AddItem("Second");
+            collection.AddItem("Third");
+
+            Console.WriteLine("Straight traversal:");
+
+            foreach (var element in collection)
+            {
+                Console.WriteLine(element);
+            }
+
+            Console.WriteLine("\nReverse traversal:");
+
+            collection.ReverseDirection();
+
+            foreach (var element in collection)
+            {
+                Console.WriteLine(element);
+            }
+            #endregion
         }
     }
 }
