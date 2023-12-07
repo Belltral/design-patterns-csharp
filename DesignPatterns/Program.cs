@@ -6,6 +6,7 @@ using DesignPatterns.Behaviour.Mediator;
 using DesignPatterns.Behaviour.Memento;
 using DesignPatterns.Behaviour.State.ShoppingOrder;
 using DesignPatterns.Behaviour.TemplateMethod;
+using DesignPatterns.Behaviour.Visitor;
 using DesignPatterns.Creational.AbstractFactory.Factories;
 using DesignPatterns.Creational.Builder.Classes;
 using DesignPatterns.Creational.Builder.Classes.Classes;
@@ -383,26 +384,57 @@ namespace DesignPatterns
 
 
             #region Iterator
-            WordsCollection collection = new WordsCollection();
-            collection.AddItem("First");
-            collection.AddItem("Second");
-            collection.AddItem("Third");
+            //WordsCollection collection = new WordsCollection();
+            //collection.AddItem("First");
+            //collection.AddItem("Second");
+            //collection.AddItem("Third");
 
-            Console.WriteLine("Straight traversal:");
+            //Console.WriteLine("Straight traversal:");
 
-            foreach (var element in collection)
+            //foreach (var element in collection)
+            //{
+            //    Console.WriteLine(element);
+            //}
+
+            //Console.WriteLine("\nReverse traversal:");
+
+            //collection.ReverseDirection();
+
+            //foreach (var element in collection)
+            //{
+            //    Console.WriteLine(element);
+            //}
+            #endregion
+
+
+            #region Visitor
+            var food = new Food(10);
+            var cigarette = new Cigarette(5);
+            var alcoholicDrink = new AlcoholicDrink(5);
+
+            var cart = new VisitableProduct[3] { food, cigarette, alcoholicDrink };
+            double total = 0;
+            foreach (var item in cart)
             {
-                Console.WriteLine(element);
+                total += item.GetPrice();
             }
+            Console.WriteLine(total);
 
-            Console.WriteLine("\nReverse traversal:");
-
-            collection.ReverseDirection();
-
-            foreach (var element in collection)
+            var brazilTax = new BrazilTaxVisitor();
+            double totalWithBrazilTax = 0;
+            foreach (var item in cart)
             {
-                Console.WriteLine(element);
+                totalWithBrazilTax += item.GetPriceWithTaxes(brazilTax);
             }
+            Console.WriteLine(totalWithBrazilTax);
+
+            var usTaxVisitor = new USTaxVisitor();
+            double totalWithUSTax = 0;
+            foreach (var item in cart)
+            {
+                totalWithUSTax += item.GetPriceWithTaxes(usTaxVisitor);
+            }
+            Console.WriteLine(totalWithUSTax);
             #endregion
         }
     }

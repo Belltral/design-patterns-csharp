@@ -14,6 +14,7 @@
     <Folder Include="Behaviour\Observer\Teoria\" />
     <Folder Include="Behaviour\State\Teoria\" />
     <Folder Include="Behaviour\TemplateMethod\Teoria\" />
+    <Folder Include="Behaviour\Visitor\Teoria\" />
     <Folder Include="Structural\Adapter\Teoria\" />
     <Folder Include="Structural\Bridge\Teoria\" />
     <Folder Include="Structural\Composite\Teoria\" />
